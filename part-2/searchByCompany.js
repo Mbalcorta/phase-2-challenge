@@ -1,5 +1,7 @@
+'use strict'
+
 const fs = require('fs')
-const company = process.argv[2];
+const companySearchString = process.argv[2]
 
 const jsonContent = (file) => {
   const stringContent =  fs.readFileSync(file, 'utf-8')
@@ -7,16 +9,22 @@ const jsonContent = (file) => {
   return JsonContent
 }
 
-
-const searchByCompany = (company) => {
-  //finds all clients who have a company that starts with the company string
-  //prints the id, company and phone of each matching client
-    //-use filter to filter through client json
-    const jsonClients = jsonContent('./clients.json')
-    const filteredCompanies =  jsonClients.filter((eachClient)=> {
-      return eachClient.company === 'DuBuque, Roob and Berge'
-    })
-    console.log(filteredCompanies)
+const printToConsole = (companiesArray, companySearchString) => {
+  console.log('Finding companies with name '+'"'+companySearchString+'"'+ '...')
+  console.log(JSON.stringify(companiesArray, null, 2))
 }
 
-searchByCompany(company)
+const searchByCompany = (companySearchString) => {
+  const searchString = companySearchString
+  const regex = new RegExp('^'+searchString, 'g')
+  const jsonClients = jsonContent('./clients.json')
+  const filteredCompaniesArray =
+    jsonClients.filter((eachClient)=> {
+      return eachClient.company.match(regex)
+      }).map((eachClient)=>{
+        return {'id': eachClient.id, 'company': eachClient.company, 'phone': eachClient.phone}
+      })
+   printToConsole(filteredCompaniesArray, companySearchString)
+}
+
+searchByCompany(companySearchString)
