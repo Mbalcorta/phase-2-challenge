@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const {month, reverseSentence, nameProps} = require('./functions')
+const {month, reverseSentence, nameProps, filterBetween} = require('./functions')
 
 describe('Month function', function(){
   it('Should accept a date object', function(){
@@ -35,5 +35,16 @@ describe('Names of properties function', function(){
   it('Should not accept an array as an argument', function(){
     const argumentValue = []
     expect(nameProps.bind(argumentValue)).to.throw(Error, 'Error: Invalid Input, type in an object value')
+  })
+})
+
+describe('Filter between function', function(){
+  it('Should accept first argument as an array and two optional minimum and maximum values', function(){
+    let arr = ['dog', 'cat', 'zebra', 'ape', 'lion', 'cow']
+     expect(filterBetween(arr, 'chimp', 'lobster')).to.eql(['dog', 'lion', 'cow'])
+  })
+  it('Should not accept a string as an argument', function(){
+    const argumentValue = 'hello world'
+    expect(filterBetween.bind(argumentValue)).to.throw(Error, 'Error: Invalid Input, type in an array value')
   })
 })
