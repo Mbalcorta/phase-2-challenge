@@ -45,7 +45,17 @@ const nameProps = (obj) => {
   }
 }
 
-const filterBetween = () => {
+const filterBetween = (array, min, max) => {
+  const minimum = min
+  const maximum = max
+  if(Array.isArray(array)){
+    const filteredArray = array.filter((eachString) => {
+      return eachString > minimum && eachString < maximum
+    })
+    return filteredArray
+  } else {
+    throw new Error('Error: Invalid Input, type in an array value')
+  }
 
 }
 
