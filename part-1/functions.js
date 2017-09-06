@@ -18,8 +18,21 @@ const month = (date) => {
     const month = monthObj[date.getMonth()]
     return month
   } else {
-    throw new Error("Invalid Input")
+    throw new Error('Error: Invalid Input, type in a date object')
   }
 }
 
-module.exports = {month}
+const reverseSentence = (string) => {
+  if(typeof string === 'string'){
+    const arrayOfWords = string.split(' ')
+    const reversedString = []
+    for(var i = arrayOfWords.length-1; i >= 0; i--){
+      reversedString.push(arrayOfWords[i])
+    }
+    return reversedString.join(' ')
+  } else {
+    throw new Error('Error: Invalid Input, type in a string value')
+  }
+}
+
+module.exports = {month, reverseSentence}
