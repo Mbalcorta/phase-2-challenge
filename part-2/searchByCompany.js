@@ -3,21 +3,21 @@
 const fs = require('fs')
 const companySearchString = process.argv[2]
 
-const jsonContent = (file) => {
+const jsonContents = (file) => {
   const stringContent =  fs.readFileSync(file, 'utf-8')
-  const JsonContent = JSON.parse(stringContent)
-  return JsonContent
+  const jsonContent = JSON.parse(stringContent)
+  return jsonContent
 }
 
 const printToConsole = (companiesArray, companySearchString) => {
-  console.log('Finding companies with name '+'"'+companySearchString+'"'+ '...')
   console.log(JSON.stringify(companiesArray, null, 2))
 }
 
 const searchByCompany = (companySearchString) => {
+  console.log('Finding companies with name '+'"'+companySearchString+'"'+ '...')
   const searchString = companySearchString
   const regex = new RegExp('^'+searchString, 'g')
-  const jsonClients = jsonContent('./clients.json')
+  const jsonClients = jsonContents('./clients.json')
   const filteredCompaniesArray =
     jsonClients.filter((eachClient)=> {
       return eachClient.company.match(regex)
@@ -27,4 +27,8 @@ const searchByCompany = (companySearchString) => {
    printToConsole(filteredCompaniesArray, companySearchString)
 }
 
-searchByCompany(companySearchString)
+if(companySearchString){
+  searchByCompany(companySearchString)
+} else {
+  console.error('ERROR: Please enter a company')
+}
