@@ -35,4 +35,14 @@ const reverseSentence = (string) => {
   }
 }
 
-module.exports = {month, reverseSentence}
+const nameProps = (obj) => {
+  if(Object.prototype.toString.call(obj) === '[object Object]'){
+    return Object.getOwnPropertyNames(obj).sort((a, b) => {
+      return a > b
+    })
+  } else {
+    throw new Error('Error: Invalid Input, type in an object value')
+  }
+}
+
+module.exports = {month, reverseSentence, nameProps}
