@@ -45,4 +45,8 @@ const nameProps = (obj) => {
   }
 }
 
-module.exports = {month, reverseSentence, nameProps}
+const filterBetween = () => {
+
+}
+
+module.exports = {month, reverseSentence, nameProps, filterBetween}
