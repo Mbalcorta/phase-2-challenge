@@ -13,9 +13,13 @@ const printToConsole = (companiesArray, companySearchString) => {
   console.log(JSON.stringify(companiesArray, null, 2))
 }
 
+const upperCaseArgument = (string) => {
+  return string[0].toUpperCase()+string.slice(1)
+}
+
 const searchByCompany = (companySearchString) => {
-  console.log('Finding companies with name '+'"'+companySearchString+'"'+ '...')
-  const searchString = companySearchString
+  const searchString = upperCaseArgument(companySearchString)
+  console.log('Finding companies with name '+'"'+searchString+'"'+ '...')
   const regex = new RegExp('^'+searchString, 'g')
   const jsonClients = jsonContents('./clients.json')
   const filteredCompaniesArray =
