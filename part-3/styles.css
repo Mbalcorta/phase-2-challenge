@@ -1,25 +1,66 @@
-html {
+/* =================================
+  Base Element Styles
+==================================== */
+* {
   box-sizing: border-box;
+}
+html, body, #container {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-.nav-parent {
-  position: fixed;
-  top: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  background: #eee;
+a {
+	text-decoration: none;
+  color: black;
+  white-space: pre;
 }
 
-nav {
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Header ---- */
+
+.main-header {
+  margin: 0;
+  padding: 8px 0 8px 0;
+  height: 32px;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
 }
 
-.cat-parent {
+a {
+  font-size: 28px;
+  margin:-10px 0 0 30px;
+}
+
+button {
+  height: 30px;
+  background-color: white;
+  border: 2px solid black;
+  font-size: 15px;
+  margin:-8px 50px 0 0;
+}
+
+button:active {
+  background-color: gray;
+}
+
+button:focus {
+  outline:0;
+}
+
+/*.cat-parent {
   position: fixed;
   width: 15%;
   height: 100%;
@@ -29,6 +70,16 @@ nav {
 }
 .categories{
   display: flex;
-  margin-top: 4em;
+  width: 400px;
+  height: 400px;
   flex-direction: column;
 }
+
+.main-content {
+  display: flex;
+
+}
+
+.allmovies{
+  flex-direction: row;
+}*/
