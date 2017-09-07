@@ -3,7 +3,7 @@
 const fs = require('fs')
 const companySearchString = process.argv[2]
 
-const jsonContents = (file) => {
+const readFileParse = (file) => {
   const stringContent =  fs.readFileSync(file, 'utf-8')
   const jsonContent = JSON.parse(stringContent)
   return jsonContent
@@ -17,18 +17,21 @@ const upperCaseArgument = (string) => {
   return string[0].toUpperCase()+string.slice(1)
 }
 
+const filteredClients = (jsonClients, searchString) => {
+  const regex = new RegExp('^'+searchString, 'g')
+  return jsonClients.filter((eachClient)=> {
+      return eachClient.company.match(regex)
+        }).map((eachClient)=>{
+          return {'id': eachClient.id, 'company': eachClient.company, 'phone': eachClient.phone}
+      })
+}
+
 const searchByCompany = (companySearchString) => {
   const searchString = upperCaseArgument(companySearchString)
   console.log('Finding companies with name '+'"'+searchString+'"'+ '...')
-  const regex = new RegExp('^'+searchString, 'g')
-  const jsonClients = jsonContents('./clients.json')
-  const filteredCompaniesArray =
-    jsonClients.filter((eachClient)=> {
-      return eachClient.company.match(regex)
-      }).map((eachClient)=>{
-        return {'id': eachClient.id, 'company': eachClient.company, 'phone': eachClient.phone}
-      })
-   printToConsole(filteredCompaniesArray, companySearchString)
+  const jsonClients = readFileParse('./clients.json')
+  const filteredCompaniesArray = filteredClients(jsonClients, searchString)
+  printToConsole(filteredCompaniesArray, companySearchString)
 }
 
 if(companySearchString){
