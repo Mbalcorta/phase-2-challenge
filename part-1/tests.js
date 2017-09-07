@@ -2,7 +2,7 @@ const expect = require('chai').expect
 const {month, reverseSentence, nameProps, filterBetween} = require('./functions')
 
 describe('Month function', function(){
-  it('Should accept a date object', function(){
+  it('Should accept a date object as an argument', function(){
     let date = new Date(2017, 5, 19)
     expect(month(date)).to.eql('June')
   })

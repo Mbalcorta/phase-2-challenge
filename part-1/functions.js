@@ -1,3 +1,5 @@
+'use strict'
+
 const monthObj = {
   0:'January',
   1:'February',
@@ -46,17 +48,14 @@ const nameProps = (obj) => {
 }
 
 const filterBetween = (array, min, max) => {
-  const minimum = min
-  const maximum = max
   if(Array.isArray(array)){
     const filteredArray = array.filter((eachString) => {
-      return eachString > minimum && eachString < maximum
+      return eachString > min && eachString < max
     })
     return filteredArray
   } else {
     throw new Error('Error: Invalid Input, type in an array value')
   }
-
 }
 
 module.exports = {month, reverseSentence, nameProps, filterBetween}
