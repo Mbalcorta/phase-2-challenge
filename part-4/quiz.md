@@ -2,11 +2,11 @@
     When you run a command in the terminal, where does BASH look for that command?
     For execution sequence for an interactive login shell BASH searches through the following files in order:
     /etc/profile
-    ~/.bash_profile
-    ~/.bashrc executes /etc/bashrc
-    ~/.bash_login
     ~/.profile
-    ~/.bash_logout
+    ~/.bash_profile
+
+    For interactive non-login shell:
+      ~/.bashrc
 
     On a UNIX computer, how do you stop a running process?
     Type 'top' command to see a list of all running processes. Then find the PID number of the process. To kill the signal type 'kill -9 -<pid>' command.
@@ -116,4 +116,4 @@
     Files to be ignored are build artifacts and machine generated files such as dependency caches such as /node_modules or /packages, compiled code, build output directories such as /bin, files generated at run time such as .log or .tmp, hidden system files such as .DS_Store, and personal IDE config files.
 
     What is the main difference between Array.map and Array.forEach in JavaScript?
-    Array.map takes in an array and modifies each element in the array. Array.forEach loops through all the items of an array.
+    Array.map takes in an array and modifies each element in the array and returns the modified array. Array.forEach loops through all the items of an array does not return anything.
