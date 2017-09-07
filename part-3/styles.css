@@ -88,7 +88,7 @@ button:focus {
   width: 100%;
 }
 
-.categories, .allmovies{
+.categories{
   margin-top: 32px;
 }
 
@@ -98,7 +98,8 @@ button:focus {
 }
 
 .categories li {
-  padding: 4px 0 0 7px;
+  padding-top: 4px;
+  margin-left: -10px;
   font-size: 20px;
 }
 
@@ -110,12 +111,16 @@ button:focus {
 
 /* ---- main-section ---- */
 
-a .allmovies{
- margin: -15px 0 -25px 0;
- font-size: 1em;
+.eachMovie-genre {
+  white-space: normal;
+}
+
+.eachMovie-genre h1{
+padding-top: 30px;
 }
 
 .allmovies {
+  padding-top: 70px;
   display: flex;
   flex-direction: column;
   flex-grow: 3;
@@ -126,11 +131,6 @@ a .allmovies{
 
 .allmoviesheader {
   font-size: 70px;
-}
-
-#drama {
-  display: flex;
-  flex-direction: column;
 }
 
 .movie-info li {
