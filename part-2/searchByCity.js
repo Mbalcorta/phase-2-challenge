@@ -1,4 +1,3 @@
-'use strict'
 
 const fs = require('fs')
 const cityNameArray = process.argv.slice(2);
@@ -38,7 +37,7 @@ const filteredCity = (cityNameUpperCased) => {
 
 const searchByCity = (cityArray) => {
   const cityNameUpperCased = upperCaseCityName(cityArray)
-  console.log('Finding companies with name '+'"'+cityNameUpperCased+'"'+ '...')
+  console.log('Finding clients \033[31min\x1b[37m City '+'"'+cityNameUpperCased+'"'+ '...')
   const filteredCompaniesArray = filteredCity(cityNameUpperCased)
   printToConsole(filteredCompaniesArray)
 }
