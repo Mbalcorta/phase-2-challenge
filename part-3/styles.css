@@ -117,6 +117,8 @@ button:focus {
 
 .eachMovie-genre h1{
 padding-top: 30px;
+font-size: 1em;
+font-weight: normal;
 }
 
 .allmovies {
