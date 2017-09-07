@@ -76,37 +76,42 @@ button:focus {
 }
 
 /* ---- sidebar ---- */
-/*.cat-parent {
-  position: fixed;
-  width: 18%;
-  height: 100%;
-  left: 0;
+/*.categories h1 {
+  width: 350px;
+  border-bottom: 2px solid black;
+}*/
+
+
+.afterHeader {
+  display: flex;
+}
+
+.header-wrapper {
+  flex: 0 0 100px;
+  border-right: 2px solid black;
+  flex-grow: 0.5;
+}
+
+.allmoviesheader {
+  font-size: 70px;
+}
+
+.categories, .allmovies {
   margin-top: 32px;
 }
 
 .categories {
+  position: fixed;
   height: 100%;
-  border-right: 2px solid black;
 }
 
-.categories h1 {
-  margin-bottom: 10px;
+.cat-header {
+  margin-top: 32px;
+  background: gray;
   border-bottom: 2px solid black;
 }
-.categories li{
-  font-size: 20px;
-}*/
-.afterHeader{
-  display: flex;
-}
 
-.categories{
-  flex-grow: 0.5;
-}
 .allmovies {
   flex-grow: 3;
-}
-
-.allmovies {
-  margin-top: 32px;
+  margin-left: 30px;
 }
