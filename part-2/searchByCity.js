@@ -16,7 +16,7 @@ const printToConsole = (companiesArray) => {
 const upperCaseCityName = (cityArray) => {
   const upperCasedCityNameArray =
     cityArray.map((eachName) => {
-      return eachName[0].toUpperCase()+ eachName.slice(1)
+      return eachName[0].toUpperCase()+ eachName.slice(1).toLowerCase()
     })
   const upperCasedCityName = upperCasedCityNameArray.join(' ')
   return upperCasedCityName

@@ -14,7 +14,7 @@ const printToConsole = (companiesArray, companySearchString) => {
 }
 
 const upperCaseArgument = (string) => {
-  return string[0].toUpperCase()+string.slice(1)
+  return string[0].toUpperCase()+string.slice(1).toLowerCase()
 }
 
 const filteredClients = (searchString) => {
