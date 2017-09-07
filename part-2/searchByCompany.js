@@ -30,7 +30,6 @@ const filteredClients = (searchString) => {
 const searchByCompany = (companySearchString) => {
   const searchString = upperCaseArgument(companySearchString)
   console.log('Finding companies with name '+'"'+searchString+'"'+ '...')
-
   const filteredCompaniesArray = filteredClients(searchString)
   printToConsole(filteredCompaniesArray, companySearchString)
 }
