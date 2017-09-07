@@ -149,3 +149,8 @@ button:focus {
 
 }
 
+.allmovies a {
+  margin: -15px 0 -25px 0;
+  font-size: 1em;
+
+}
