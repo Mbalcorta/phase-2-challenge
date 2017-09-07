@@ -14,26 +14,33 @@ const printToConsole = (companiesArray) => {
 }
 
 const upperCaseCityName = (cityArray) => {
-  const upperCasedCityNameArray = cityArray.map((eachName) => {
-    return eachName[0].toUpperCase()+ eachName.slice(1)
-  })
+  const upperCasedCityNameArray =
+    cityArray.map((eachName) => {
+      return eachName[0].toUpperCase()+ eachName.slice(1)
+    })
   const upperCasedCityName = upperCasedCityNameArray.join(' ')
   return upperCasedCityName
 }
 
-const searchByCity = (cityArray) => {
-
-    const cityNameUpperCased = upperCaseCityName(cityArray)
-    console.log('Finding companies with name '+'"'+cityNameUpperCased+'"'+ '...')
-    const fileContent = jsonContents('./clients.json')
-    const filteredCompaniesArray =
-      fileContent.filter((eachClient) => {
-        return eachClient.city === cityNameUpperCased
+const filteredCity = (cityNameUpperCased) => {
+  const fileContent = jsonContents('./clients.json')
+  return  fileContent.filter((eachClient) => {
+    return eachClient.city === cityNameUpperCased
       }).map((eachClient) => {
-          return {'id': eachClient.id, 'rep_name': eachClient.rep_name, 'company': eachClient.company,
-            'city': eachClient.city, 'state': eachClient.state}
-      })
-      printToConsole(filteredCompaniesArray)
+        return {
+          'id': eachClient.id,
+          'rep_name': eachClient.rep_name,
+          'company': eachClient.company,
+          'city': eachClient.city,
+          'state': eachClient.state}
+    })
+}
+
+const searchByCity = (cityArray) => {
+  const cityNameUpperCased = upperCaseCityName(cityArray)
+  console.log('Finding companies with name '+'"'+cityNameUpperCased+'"'+ '...')
+  const filteredCompaniesArray = filteredCity(cityNameUpperCased)
+  printToConsole(filteredCompaniesArray)
 }
 
 if(cityNameArray.length > 0){

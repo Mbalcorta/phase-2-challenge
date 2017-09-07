@@ -17,7 +17,8 @@ const upperCaseArgument = (string) => {
   return string[0].toUpperCase()+string.slice(1)
 }
 
-const filteredClients = (jsonClients, searchString) => {
+const filteredClients = (searchString) => {
+  const jsonClients = readFileParse('./clients.json')
   const regex = new RegExp('^'+searchString, 'g')
   return jsonClients.filter((eachClient)=> {
       return eachClient.company.match(regex)
@@ -29,8 +30,8 @@ const filteredClients = (jsonClients, searchString) => {
 const searchByCompany = (companySearchString) => {
   const searchString = upperCaseArgument(companySearchString)
   console.log('Finding companies with name '+'"'+searchString+'"'+ '...')
-  const jsonClients = readFileParse('./clients.json')
-  const filteredCompaniesArray = filteredClients(jsonClients, searchString)
+
+  const filteredCompaniesArray = filteredClients(searchString)
   printToConsole(filteredCompaniesArray, companySearchString)
 }
 
